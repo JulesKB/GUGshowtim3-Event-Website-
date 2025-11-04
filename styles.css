@@ -1,0 +1,451 @@
+/* Global Reset & Background */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: sans-serif;
+    height: 100%;
+}
+
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/artist.jpg'); /* fallback image */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.top-header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    z-index: 1;
+}
+
+.event-title {
+    font-size: 3rem;
+    color: red;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.live-label {
+    font-size: 1.5rem;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0.5rem 0 0;
+}
+
+
+
+.logo-floating {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    height: 80px;
+    z-index: 10; /* above background, below or above header depending on overlap */
+}
+
+/* --- New Horizontal Navigation Styles --- */
+.horizontal-nav {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 2.5rem; /* Space between links */
+    padding: 1rem 0;
+    /* Removed background: rgba(0, 0, 0, 0.5); */ /* Semi-transparent background for readability */
+    margin-top: -1rem; /* Pull it up slightly to be closer to header */
+    z-index: 5; /* Ensure it's above background but below modals */
+    position: relative; /* Needed for z-index to work */
+}
+
+.horizontal-nav a {
+    text-decoration: none;
+    color: white; /* Changed to white for visibility on background */
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Added text shadow for readability */
+}
+
+.horizontal-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Keep subtle hover effect */
+    color: #f39c12; /* Highlight color on hover */
+}
+
+
+/* Main Content Area (formerly right-column) */
+.main-content-area {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    gap: 2 rem; /* Space between sections/card rows */
+    padding: 1rem; /* Overall padding for the content area */
+    flex: 1; /* Allow it to grow and fill space if needed */
+}
+
+/* Reusable Card Row Style */
+.card-row {
+    display: flex;
+    justify-content: center; /* Center cards within the row */
+    gap: 2rem; /* Space between cards in a row */
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+/* Shared Square Card Style */
+.square-card {
+    flex: 1; /* Allows cards to grow and shrink */
+    min-width: 300px;
+    height: 320px; /* Fixed height for consistency */
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Hero styling */
+.hero-card {
+    background-image: url('Bg-photo 2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative; /* IMPORTANT: Needed for absolute positioning of the button */
+}
+
+/* Styling for the "Party with Showtim3" slogan */
+#event-slogan {
+    font-family: 'Great Vibes', cursive; /* Applied signature font */
+    color: #008080; /* Teal green color */
+    font-size: 2.5rem; /* Adjust size as needed */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Added shadow for readability */
+    margin-bottom: 1rem; /* Space below slogan */
+}
+
+/* Styling for the new "Save a Spot" button */
+.hero-button-new-style {
+    position: absolute; /* Position relative to .hero-card */
+    bottom: 20px; /* Distance from bottom */
+    right: 20px; /* Distance from right */
+    padding: 0.6rem 1rem; /* Smaller padding */
+    border: none;
+    border-radius: 8px;
+    background: burlywood; /* Burlywood color */
+    color: white; /* White text */
+    font-size: 0.9rem; /* Smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-button-new-style:hover {
+    background-color: #deb887; /* Slightly darker burlywood on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+
+/* --- ABOUT CARD UPDATE (NEW) --- */
+.about-card {
+    background: linear-gradient(to top right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-card h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.about-card p {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+
+/* New Lineup Card Styling */
+.lineup-card-new {
+    /* Overrides .square-card defaults for size and positioning */
+    flex: unset; /* Remove flex-grow/shrink */
+    width: 300px; /* Smaller fixed width */
+    height: auto; /* Height adjusts to content */
+    min-height: 200px; /* Ensure a minimum height */
+    background-color: rgba(173, 122, 94, 0.85); /* A distinct color */
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 2rem; /* Space below performer grid */
+    align-self: center; /* Center within the flex container (performers-floating) */
+}
+
+.lineup-card-new h3 {
+    color: yellow; /* Highlight lineup title */
+    margin-bottom: 1rem;
+}
+
+/* New Register Card Styling */
+.register-card-new {
+    /* Overrides .square-card defaults for size and positioning */
+    flex: unset; /* Remove flex-grow/shrink */
+    width: 300px; /* Smaller fixed fixed width */
+    height: auto; /* Height adjusts to content */
+    min-height: 200px; /* Ensure a minimum height */
+    background-color: rgba(0, 123, 255, 0.85); /* A distinct color, similar to popup button */
+    color: white;
+    margin-top: 2rem; /* Space below highlights row */
+    align-self: center; /* Center within the flex container (highlights-floating) */
+}
+
+.register-card-new h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.register-card-new button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: white; /* White button on blue card */
+    color: #007bff; /* Blue text on white button */
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.register-card-new button:hover {
+    background-color: #e0e0e0;
+    color: #0056b3;
+}
+
+
+/* Floating Sections (Performers, Highlights) */
+.performers-floating, .highlights-floating {
+    position: relative;
+    padding: 4rem 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    display: flex; /* Make these sections flex containers */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.floating-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.performer-grid-raw {
+    display: flex;
+    justify-content: center;
+    gap: 4rem; /* Increased gap between performer boxes */
+    flex-wrap: wrap;
+}
+
+.performer-box {
+    /* Merged styles: your preferred size with the new background effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 200px;
+    height: 320px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.performer-box img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.performer-box:hover {
+    transform: scale(1.05);
+}
+
+
+/* Video Highlights */
+.highlights-row.raw-background {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.video-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.vertical-video {
+    width: 220px;
+    height: 390px;
+}
+
+.wide-video {
+    width: 460px;
+    height: 300px;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- Modal Styles (for both RSVP form and Success) --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Stack modal content */
+}
+
+.modal-container {
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 400px; /* Max width for larger screens */
+    text-align: center;
+    position: relative; /* For positioning the close button */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Specific styling for the RSVP form inside the modal */
+#rsvp-popup-form input {
+    width: calc(100% - 20px); /* Adjust for padding */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#rsvp-popup-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Example blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#rsvp-popup-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Existing Success Modal specific styles */
+#success-modal .modal-container {
+    background-color: lightsteelblue; /* Keep original color */
+    color: black;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 50px; /* Keep original padding */
+    width: 55%; /* Keep original width */
+    max-width: 500px; /* Add max-width for better control */
+}
+
+#modal-img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease; /* For smooth animation */
+}
+
+/* --- New Social Links Section Styles --- */
+.social-links {
+    position: fixed; /* Fixed position relative to viewport */
+    bottom: 20px; /* 20px from the bottom */
+    left: 50%; /* Start from the middle */
+    transform: translateX(-50%); /* Pull back by half its width to truly center */
+    display: flex;
+    gap: 20px; /* Space between icons */
+    z-index: 90; /* Below modals, above background */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links .social-icon {
+    width: 40px; /* Size of the icons */
+    height: 40px;
+    border-radius: 50%; /* Make icons circular */
+    transition: transform 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}

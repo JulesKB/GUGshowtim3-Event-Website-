@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUG SHOWTIM3 Event</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="background-wrapper">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="Vbg 4.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <!-- Logo pinned to the far left -->
+    <img src="gug_logo copy.png" alt="Logo" class="logo-floating" />
+
+    <!-- Header Card -->
+    <header class="top-header">
+        <h1 class="event-title">GUG SHOWTIM3</h1> 
+        <p class="live-label">LIVE</p>
+    </header>
+
+    <!-- New Horizontal Navigation -->
+    <nav class="horizontal-nav">
+        <a href="#about">About</a>
+        <a href="#performers">Performers</a>
+        <a href="#lineup-section">Lineup</a> <!-- Updated href to target the section -->
+        <a href="#" id="rsvp-menu-link">RSVP</a>
+        <a href="#media">Watch</a>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-content-area">
+        <!-- HERO + ABOUT SIDE BY SIDE -->
+        <div class="card-row">
+            <div class="square-card hero-card">
+                <h2 id="event-slogan">Party with Showtim3</h2> <!-- Added ID here -->
+                <button id="save-spot-btn" class="hero-button-new-style">Save a Spot</button> <!-- Added class here -->
+            </div>
+            <div class="square-card about-card">
+                <h3>About the Event</h3>
+                <p>Get ready for an electrifying evening featuring GUG Showtim3, GUG Prince, and more. This isn’t just a concert — it’s a celebration of energy, beats, and culture.</p>
+            </div>
+        </div>
+
+
+        <!-- Featured Performers Floating Section -->
+        <section class="performers-floating" id="performers">
+            <h2 class="floating-title">Featured Performers</h2>
+            <div class="performer-grid-raw">
+                <div class="performer-box">
+                    <img src="Pixels 2.jpg" alt="Artist 1" />
+                    <p>Artist 1</p>
+                </div>
+                <div class="performer-box">
+                    <img src="Pixels 4.jpg" alt="Artist 2" />
+                    <p>Artist 2</p>
+                </div>
+                <div class="performer-box">
+                    <img src="Pixels 5.jpg" alt="Artist 3" />
+                    <p>Artist 3</p>
+                </div>
+            </div>
+            <!-- Lineup Card moved here -->
+            <div class="square-card lineup-card-new" id="lineup-section">
+                <h3>Event Lineup</h3>
+                <p>3:00 PM – DJ Warmup</p>
+                <p>4:00 PM – GUG Prince</p>
+                <p>5:00 PM – GUG Showtim3</p>
+            </div>
+        </section>
+
+        <!-- WATCH HIGHLIGHTS (No card wrapping) -->
+        <section class="highlights-floating" id="media">
+            <h3 class="floating-title">Watch Highlights</h3>
+            <div class="highlights-row raw-background">
+                <!-- Left Shorts -->
+                <div class="video-wrapper vertical-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FZfZfnzwL7s?si=Cp_4lvOhBMSagGkP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <!-- Center Interview -->
+                <div class="video-wrapper wide-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/UeVMpcHXJno?si=BacAddit3AYwYNWg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <!-- Right Shorts -->
+                <div class="video-wrapper vertical-video">
+                    <iframe width="315"height="560" src="https://www.youtube.com/embed/5cQgS65G6Ug" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+                </div>
+            </div>
+            
+            <!-- Register Card moved here -->
+            <div class="square-card register-card-new" id="rsvp">
+                <h3>Ready to Join the Party?</h3>
+                <button id="register-middle-btn">Register Now!</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- New RSVP Form Modal -->
+    <div id="rsvp-form-modal" class="modal">
+        <div class="modal-container">
+            <h3 class="modal-title">Register for the Event!</h3>
+            <form id="rsvp-popup-form" class="rsvp-form">
+                <input type="text" id="popup-name" placeholder="Name" required />
+                <input type="text" id="popup-city" placeholder="City" required />
+                <input type="email" id="popup-email" placeholder="Email" required />
+                <button type="submit" id="popup-submit-btn">Submit RSVP</button>
+            </form>
+            <button id="close-rsvp-form-modal" class="modal-close-btn">X</button>
+        </div>
+    </div>
+
+    <!-- Existing Success Modal (from previous project) -->
+    <div id="success-modal" class="modal">
+        <div class="modal-container">
+            <div id="modal-text">
+                <p id="modal-message">Thanks for RSVPing!</p>
+                <button id="close-modal">Close</button>
+            </div>
+            <div id="modal-image">
+                <img src="Bg-photo 4.jpg" alt="GUG Logo" id="modal-img" />
+            </div>
+        </div>
+    </div>
+
+    <!-- New Social Links Section at the bottom -->
+    <div class="social-links">
+        <a href="https://instagram.com" target="_blank">
+            <img src="https://placehold.co/40x40/ff00ff/ffffff?text=IG" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://youtube.com" target="_blank">
+            <img src="https://placehold.co/40x40/ff0000/ffffff?text=YT" alt="YouTube" class="social-icon">
+        </a>
+        <a href="https://tiktok.com" target="_blank">
+            <img src="https://placehold.co/40x40/000000/ffffff?text=TK" alt="TikTok" class="social-icon">
+        </a>
+        <a href="https://yourwebsite.com" target="_blank">
+            <img src="https://placehold.co/40x40/007bff/ffffff?text=WEB" alt="Website" class="social-icon">
+        </a>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
